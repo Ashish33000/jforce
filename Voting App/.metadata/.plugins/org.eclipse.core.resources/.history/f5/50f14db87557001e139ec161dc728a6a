@@ -1,0 +1,32 @@
+package com.jforce.service;
+
+import javax.security.auth.login.LoginException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jforce.Entity.UserDTO;
+import com.jforce.Entity.Users;
+import com.jforce.Repository.UserRepository;
+import com.jforce.Repository.UserSessionRepository;
+
+@Service
+public class UsersLoginService implements UsersSevice {
+	@Autowired
+	private UserRepository userRepo;
+	@Autowired
+	private UserSessionRepository sessionRepo;
+
+	@Override
+	public String logIntoAccount(UserDTO dto) throws LoginException {
+		Users existingusers=userRepo.findByUsername(dto.get)
+		return null;
+	}
+
+	@Override
+	public String logOutAccount(String key) throws LoginException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

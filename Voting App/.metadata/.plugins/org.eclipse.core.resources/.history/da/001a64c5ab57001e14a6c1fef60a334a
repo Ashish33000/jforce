@@ -1,0 +1,49 @@
+package com.jforce.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jforce.Entity.Candidate;
+import com.jforce.Entity.Users;
+import com.jforce.Repository.CandidateRepo;
+import com.jforce.Repository.UserRepository;
+
+@Service
+public class CandidateService {
+	@Autowired
+	private CandidateRepo cadRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	public Candidate addCan(Candidate cad) {
+		
+		return cadRepo.save(cad);
+		
+	}
+	
+	public Integer voteCount(Candidate cad,Users u) {
+	boolean vote=cad.isVote();
+	Integer votecount=0;
+	if(vote==true) {		
+		Users votedUser=userRepo.findById(u.getUid()).get();
+		votedUser.setUid(cad.getUid());
+			votecount++;
+		
+		
+		
+		
+		
+		
+		
+	}
+	cadRepo.save(cad);
+	return votecount;
+	
+	}
+	
+	
+	
+	
+
+}

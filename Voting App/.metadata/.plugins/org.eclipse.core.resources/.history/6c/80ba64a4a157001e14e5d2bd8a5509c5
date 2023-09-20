@@ -1,0 +1,12 @@
+package com.jforce.service;
+
+import javax.security.auth.login.LoginException;
+
+import com.jforce.Entity.UserDTO;
+
+public interface UsersSevice {
+	
+	public String logIntoAccount(UserDTO dto) throws LoginException;
+	public String logOutAccount(String key) throws LoginException;
+
+}

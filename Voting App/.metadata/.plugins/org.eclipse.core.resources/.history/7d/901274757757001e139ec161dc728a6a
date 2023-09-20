@@ -1,0 +1,59 @@
+package com.jforce.service;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.UUID;
+
+import javax.security.auth.login.LoginException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jforce.Entity.UserDTO;
+import com.jforce.Entity.UserSession;
+import com.jforce.Entity.Users;
+import com.jforce.Repository.UserRepository;
+import com.jforce.Repository.UserSessionRepository;
+
+@Service
+public class UsersLoginService implements UsersSevice {
+	@Autowired
+	private UserRepository userRepo;
+	@Autowired
+	private UserSessionRepository sessionRepo;
+
+	@Override
+	public String logIntoAccount(UserDTO dto) throws LoginException {
+		Users existingusers=userRepo.findByUsername(dto.getUsername());
+		if(existingusers==null) {
+			throw new LoginException("Please enter correct User Details");
+		}
+		Optional<UserSession> validSession=sessionRepo.findById(existingusers.getUid());
+      if (validSession.isPresent()) {
+			
+			System.out.println(validSession);
+			
+			throw new LoginException("Admin Already Login with this no");
+		}
+      if (existingusers.getPassword().equals(dto.getPasssword())) {
+			
+			String key = UUID.randomUUID().toString();
+			
+			UserSession currentUsersSession = new UserSession(existingusers.getUid(), key, LocalDateTime.now());
+			
+			sessionRepo.save(currentUsersSession);
+			return currentUsersSession.toString();
+		} else {
+			throw new LoginException("Invalid Pasword please give correct credential");
+		}
+      
+		}
+		
+
+	@Override
+	public String logOutAccount(String key) throws LoginException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

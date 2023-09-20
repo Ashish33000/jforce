@@ -1,0 +1,10 @@
+package com.jforce.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.jforce.Entity.UserSession;
+
+public interface UserSessionRepository extends JpaRepository<UserSession, Integer> {
+	public UserSession findByUuid(String key);
+
+}
