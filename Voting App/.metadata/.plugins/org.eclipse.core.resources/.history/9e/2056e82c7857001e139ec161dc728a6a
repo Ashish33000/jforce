@@ -1,7 +1,0 @@
-package com.jforce.service;
-
-public interface AddUsers {
-	
-	public Users AddUsers()
-
-}

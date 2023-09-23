@@ -1,5 +1,0 @@
-package com.jforce.Repository;
-
-public interface CandidateRepo {
-
-}

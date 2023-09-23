@@ -1,0 +1,23 @@
+package com.jforce.VotingApp.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jforce.VotingApp.Repository.VoterRepository;
+import com.jforce.VotingApp.model.Voter;
+
+@Service
+public class VoterServiceImpl implements VoterService {
+	@Autowired
+	private VoterRepository voterRepo;
+
+	@Override
+	public void vote(Integer cadId, Integer voterId) {
+		Voter voter=voterRepo.findById(voterId).orElse(null);
+		if(voter==null||voter.isHasVoted()) {
+			throw new VoterEx
+		}
+		
+	}
+
+}

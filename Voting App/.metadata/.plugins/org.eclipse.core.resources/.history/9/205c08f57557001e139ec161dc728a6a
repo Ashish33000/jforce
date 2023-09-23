@@ -1,5 +1,0 @@
-package com.jforce.Exception;
-
-public class LoginException {
-
-}

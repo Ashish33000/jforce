@@ -1,7 +1,0 @@
-package com.jforce.Entity;
-
-public class UserDTO {
-	private String username;
-	private String passsword;
-
-}

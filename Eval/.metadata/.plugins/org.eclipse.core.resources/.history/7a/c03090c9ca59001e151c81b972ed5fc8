@@ -1,0 +1,5 @@
+package com.jforce.VotingApp.Service;
+
+public interface VoterService {
+
+}
