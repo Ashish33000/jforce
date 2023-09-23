@@ -1,7 +1,0 @@
-package com.jforce.VotingApp.Service;
-
-public interface VoterService {
-	
-	public void vote(Integer cadId,Integer voterId);
-
-}

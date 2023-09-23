@@ -1,9 +1,0 @@
-package com.jforce.VotingApp.config;
-
-public class Snippet {
-	public static void main(String[] args) {
-		package com.masai.config;
-		
-	}
-}
-

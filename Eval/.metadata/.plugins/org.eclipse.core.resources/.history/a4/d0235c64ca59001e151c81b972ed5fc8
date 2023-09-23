@@ -1,5 +1,0 @@
-package com.jforce.VotingApp.Repository;
-
-public interface CandidateRepository {
-
-}
