@@ -50,7 +50,7 @@ public class AppConfig {
 		.and()
 		.authorizeHttpRequests()
 		.requestMatchers(HttpMethod.POST, "/adduser").permitAll()
-		.requestMatchers(HttpMethod.GET).hasRole("ADMIN")
+		.requestMatchers(HttpMethod.POST).hasRole("ADMIN")
 		.requestMatchers(HttpMethod.POST,"/vote").hasRole("VOTER")
 		.anyRequest().authenticated().and()
 		.addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)

@@ -29,10 +29,10 @@ servers = {
 @SecurityScheme(name = "bearerToken", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 }) 
 
-public class SpringSecurityWithJwtApplication {
+public class VotingApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityWithJwtApplication.class, args);
+		SpringApplication.run(VotingApp.class, args);
 	}
 
 }
